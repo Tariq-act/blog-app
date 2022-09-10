@@ -71,7 +71,6 @@ export const GlobalProvider = ({ children }) => {
   // ApplyFilter
   const applyFilter = () => {
     let updatedList = postLists;
-
     // search filter
     if (inputSearch) {
       updatedList = updatedList.filter(
@@ -80,10 +79,11 @@ export const GlobalProvider = ({ children }) => {
           -1
       );
     }
+    // console.log(updatedList);
 
     // Type Filter
     if (type) {
-      updatedList = updatedList.filter((item) => item.type === type);
+      updatedList = updatedList.filter((item) => item.blogType === type);
     }
 
     setPostLists(updatedList);
@@ -92,7 +92,7 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     applyFilter();
     // eslint-disable-next-line
-  }, [inputSearch, type]);
+  });
 
   return (
     <GlobalContext.Provider
