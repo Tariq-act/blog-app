@@ -8,7 +8,11 @@ const Home = () => {
   const { postLists, deletePost } = useContext(GlobalContext);
   return (
     <div className='home-page'>
-      {postLists.length === 0 ? (
+      {postLists ? (
+        postLists.map((item) => (
+          <Card key={item.id} data={item} deletePost={deletePost} />
+        ))
+      ) : (
         <h1
           style={{
             textAlign: 'center',
@@ -20,10 +24,6 @@ const Home = () => {
         >
           No blog created
         </h1>
-      ) : (
-        postLists.map((item) => (
-          <Card key={item.id} data={item} deletePost={deletePost} />
-        ))
       )}
     </div>
   );

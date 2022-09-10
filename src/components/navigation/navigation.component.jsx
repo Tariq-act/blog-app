@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import { GlobalContext } from '../../context/context.api';
 
@@ -11,7 +11,9 @@ const Navigation = () => {
   return (
     <div className='navigation'>
       <div className='logo'>
-        <i className='fa-brands fa-blogger-b'></i>
+        <Link to='/'>
+          <i className='fa-brands fa-blogger-b'></i>
+        </Link>
       </div>
       <div className='controls'>
         <ul className='nav-links'>

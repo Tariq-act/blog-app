@@ -15,6 +15,9 @@
 .navigation .logo {
   font-size: 2rem;
 }
+.navigation .logo a {
+  color: black;
+}
 
 .navigation .controls {
   display: flex;
