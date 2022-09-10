@@ -54,12 +54,12 @@
 }
 
 .navigation .controls .search i {
-  transform: translateX(25px);
+  transform: translateX(10px);
 }
 
 .navigation .controls .search input {
   padding: 0.3rem;
-  padding-left: 20px;
+  padding-left: 5px;
   font-size: 0.95rem;
   font-family: inherit;
   background-color: transparent;
@@ -68,4 +68,13 @@
 .navigation .controls .search input:focus {
   outline: none;
   border-bottom: 1px solid white;
+}
+
+.select-filter select {
+  padding: 0.3rem 0.5rem;
+  border: none;
+}
+
+.select-filter select:focus {
+  outline: none;
 }

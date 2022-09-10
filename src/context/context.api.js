@@ -23,6 +23,7 @@ export const GlobalProvider = ({ children }) => {
   const [blogType, setBlogType] = useState('');
   const [postLists, setPostLists] = useState([]);
   const [inputSearch, setInputSearch] = useState('');
+  const [type, setType] = useState('');
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -36,6 +37,10 @@ export const GlobalProvider = ({ children }) => {
 
   const handleSearch = (e) => {
     setInputSearch(e.target.value);
+  };
+
+  const handleType = (e) => {
+    setType(e.target.value);
   };
 
   const postsCollectionsRef = collection(db, 'posts');
@@ -52,6 +57,8 @@ export const GlobalProvider = ({ children }) => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionsRef);
       setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPostLists(data);
+      console.log(data);
     };
 
     getPosts();
@@ -63,6 +70,30 @@ export const GlobalProvider = ({ children }) => {
     navigate('/');
   };
 
+  // ApplyFilter
+  const applyFilter = () => {
+    let updatedList = postLists;
+
+    // search filter
+    if (inputSearch) {
+      updatedList = updatedList.filter(
+        (item) =>
+          item.title.toLowerCase().search(inputSearch.toLowerCase().trim()) !==
+          -1
+      );
+    }
+
+    if (type) {
+      updatedList = updatedList.filter((item) => item.type === type);
+    }
+
+    setPostLists(updatedList);
+  };
+
+  useEffect(() => {
+    applyFilter();
+  }, [inputSearch, type]);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -70,10 +101,12 @@ export const GlobalProvider = ({ children }) => {
         postText,
         blogType,
         inputSearch,
+        type,
         handleTitle,
         handlePostText,
         handleBlogType,
         handleSearch,
+        handleType,
         createPost,
         postLists,
         deletePost,

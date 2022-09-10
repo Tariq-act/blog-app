@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useContext } from 'react';
 import { GlobalContext } from '../../context/context.api';
 
@@ -46,7 +46,7 @@ const CreatePost = () => {
               value={blogType}
               onChange={handleBlogType}
             >
-              <option value='#'>select</option>
+              <option value=''>select</option>
               <option value='tech'>Tech</option>
               <option value='entertainment'>Entertainment</option>
               <option value='community'>Community</option>
