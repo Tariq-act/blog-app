@@ -81,6 +81,7 @@ export const GlobalProvider = ({ children }) => {
       );
     }
 
+    // Type Filter
     if (type) {
       updatedList = updatedList.filter((item) => item.type === type);
     }
