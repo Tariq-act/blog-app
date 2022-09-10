@@ -57,8 +57,6 @@ export const GlobalProvider = ({ children }) => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionsRef);
       setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      setPostLists(data);
-      console.log(data);
     };
 
     getPosts();
@@ -92,6 +90,7 @@ export const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     applyFilter();
+    // eslint-disable-next-line
   }, [inputSearch, type]);
 
   return (
