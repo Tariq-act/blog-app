@@ -1,0 +1,74 @@
+.create-post {
+  max-width: 100%;
+  margin: 2rem auto;
+  display: grid;
+  place-items: center;
+}
+
+.create-post-container {
+  width: 500px;
+  background-color: rgb(182, 182, 255);
+  padding: 1rem 2rem;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.create-post-container h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.create-post-container .form-control:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.create-post-container .form-control label {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.create-post-container .form-control textarea {
+  height: 150px;
+}
+
+.create-post-container .form-control input,
+.create-post-container .form-control textarea,
+.create-post-container .form-control select {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.create-post-container .form-control input:focus,
+.create-post-container .form-control textarea:focus {
+  outline: none;
+  border-bottom: 2px solid rgb(43, 61, 253);
+}
+
+.create-post-container .form-control select:focus {
+  outline: none;
+}
+
+.create-post-container .btn {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  font-size: inherit;
+  background-color: rgb(83, 231, 83);
+  border: none;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.create-post-container .btn:hover {
+  background-color: rgb(8, 221, 8);
+}
+
+.error {
+  margin-top: 1rem;
+  text-align: center;
+  color: rgb(236, 4, 4);
+}
