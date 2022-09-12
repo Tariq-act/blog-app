@@ -1,6 +1,6 @@
 # Blog App Created in React and Firebase database
 
-![Blog image app](./src/assets/UI image/display.png)
+![Blog image app](./src/assets/Images/display.png)
 
 ### Feature
 
