@@ -41,8 +41,15 @@
   height: auto;
   max-height: 400px;
   width: 100%;
-  overflow: hidden;
   overflow-y: auto;
+}
+
+.post-content::-webkit-scrollbar {
+  width: 0.1rem;
+}
+
+.post-content::-webkit-scrollbar-thumb {
+  background-color: royalblue;
 }
 
 .btn-delete {

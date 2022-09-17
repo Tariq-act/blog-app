@@ -56,7 +56,8 @@ export const GlobalProvider = ({ children }) => {
   useEffect(() => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionsRef);
-      setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      // setPostLists(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      data.docs.map((item) => setPostLists([{ ...item.data(), id: item.id }]));
     };
 
     getPosts();
@@ -69,30 +70,32 @@ export const GlobalProvider = ({ children }) => {
   };
 
   // ApplyFilter
-  const applyFilter = () => {
-    let updatedList = postLists;
-    // search filter
-    if (inputSearch) {
-      updatedList = updatedList.filter(
-        (item) =>
-          item.title.toLowerCase().search(inputSearch.toLowerCase().trim()) !==
-          -1
-      );
-    }
-    // console.log(updatedList);
-
-    // Type Filter
-    if (type) {
-      updatedList = updatedList.filter((item) => item.blogType === type);
-    }
-
-    setPostLists(updatedList);
-  };
 
   useEffect(() => {
+    const applyFilter = () => {
+      let updatedList = postLists;
+      // search filter
+      if (inputSearch) {
+        updatedList = updatedList.filter(
+          (item) =>
+            item.title
+              .toLowerCase()
+              .search(inputSearch.toLowerCase().trim()) !== -1
+        );
+      }
+      // console.log(updatedList);
+
+      // Type Filter
+      if (type) {
+        updatedList = updatedList.filter((item) => item.blogType === type);
+      }
+
+      setPostLists(updatedList);
+    };
+
     applyFilter();
     // eslint-disable-next-line
-  });
+  }, [postLists]);
 
   return (
     <GlobalContext.Provider
